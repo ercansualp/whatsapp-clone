@@ -11,7 +11,7 @@ export default function Home() {
     return (
         <div className="bg-[#0c1317] h-screen flex items-center overflow-hidden">
             <div className="mx-auto max-1440:w-full max-1440:h-full 1440:w-[calc(100%-38px)] 1440:h-[calc(100%-38px)] flex max-w-[1600px]">
-                <div className="max-w-[30%] max-901:max-w-[45%] max-1301:max-w-[40%] w-full flex flex-col min-h-full">
+                <div className="max-w-[30%] max-901:max-w-[45%] max-1301:max-w-[40%] w-full flex flex-col">
                     {
                         value === 0 ? <Contacts setValue={setValue} /> :
                         value === 1 ? <Communities setValue={setValue} /> :
