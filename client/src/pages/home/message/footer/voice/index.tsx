@@ -3,6 +3,7 @@ import {useCurrentUser} from "~/store/auth/hooks.tsx";
 import {setMessage, setMessages} from "~/store/message/actions.tsx";
 import {useContacts, useMessage, useMessages} from "~/store/message/hooks.tsx";
 import {socket} from "~/components/main";
+import {messageAPI} from "~/url.tsx";
 
 export default function Voice() {
     const currentUser = useCurrentUser();
@@ -13,7 +14,7 @@ export default function Voice() {
     const submitMessage = async () => {
         const _message = message.trim();
         if(_message) {
-            const {data} = await axios.post("http://13.50.130.221:5000/message", {
+            const {data} = await axios.post(messageAPI, {
                 sender: currentUser._id,
                 recipient: contact._id,
                 text: _message

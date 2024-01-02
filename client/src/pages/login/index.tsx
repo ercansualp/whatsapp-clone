@@ -1,6 +1,7 @@
 import {useState} from "react";
 import axios from "axios";
 import {setCurrentUser} from "~/store/auth/actions.tsx";
+import {userAPI} from "~/url.tsx";
 
 export default function Login() {
     const [values, setValues] = useState({
@@ -17,7 +18,7 @@ export default function Login() {
     }
     const handleSubmit = async event => {
         event.preventDefault();
-        const {data} = await axios.post("http://13.50.130.221:5000/user/login", {
+        const {data} = await axios.post(`${userAPI}/login`, {
             email: values.email,
             password: values.password
         }, {withCredentials: true});

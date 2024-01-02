@@ -4,6 +4,7 @@ import {useCurrentUser} from "~/store/auth/hooks.tsx";
 import axios from "axios";
 import {setMessages} from "~/store/message/actions.tsx";
 import {useContacts, useMessages} from "~/store/message/hooks.tsx";
+import {messageAPI} from "~/url.tsx";
 
 export default function Content() {
     const currentUser = useCurrentUser();
@@ -12,7 +13,7 @@ export default function Content() {
     const contact = useContacts().find(contact => contact.active);
     /*
     const getMessages = async () => {
-        const {data} = await axios.get("http://13.50.130.221:5000/message", {
+        const {data} = await axios.get(messageAPI, {
             headers: {
                 currentUserId: currentUser._id,
                 contactId: contact._id

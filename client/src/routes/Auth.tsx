@@ -4,6 +4,7 @@ import {useCookies} from "react-cookie";
 import {useEffect} from "react";
 import axios from "axios";
 import {setCurrentUser, setLoading} from "~/store/auth/actions.tsx";
+import {userAPI} from "~/url.tsx";
 
 type props = {
     children: node
@@ -17,7 +18,7 @@ export default function Auth(props: props) {
     const verifyUser = async () => {
         if(!cookies.jsonwebtoken) setCurrentUser(undefined);
         else {
-            const {data} = await axios.post("http://13.50.130.221:5000/user",{}, {
+            const {data} = await axios.post(userAPI,{}, {
                 withCredentials: true
             });
             if(!data) {

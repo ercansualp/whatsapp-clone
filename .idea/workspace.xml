@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db45d9cf-653d-414c-b234-42b544e62be6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/url.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/contact/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/contact/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/main/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/main/index.tsx" afterDir="false" />
@@ -12,11 +13,11 @@
       <change beforePath="$PROJECT_DIR$/client/src/pages/home/contacts/header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/contacts/header/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/content/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/content/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/footer/voice/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/footer/voice/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/header/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/home/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/profile/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/login/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/register/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/routes/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/routes/Auth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +95,7 @@
       <workItem from="1703916346607" duration="40178000" />
       <workItem from="1704004700785" duration="33505000" />
       <workItem from="1704092583220" duration="31726000" />
-      <workItem from="1704174593429" duration="23872000" />
+      <workItem from="1704174593429" duration="25305000" />
     </task>
     <servers />
   </component>

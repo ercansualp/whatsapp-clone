@@ -9,6 +9,7 @@ import {useNavigate} from "react-router-dom";
 import {useCookies} from "react-cookie";
 import {socket} from "~/components/main";
 import axios from "axios";
+import {userAPI} from "~/url.tsx";
 
 type props = {
     setValue: any;
@@ -30,7 +31,7 @@ export default function Header(props: props) {
         removeCookie("jsonwebtoken");
         const date = new Date();
         socket.emit("left_room", {_id: currentUser._id, date});
-        axios.post("http://13.50.130.221:5000/user/logout", {_id: currentUser._id, date});
+        axios.post(`${userAPI}/logout`, {_id: currentUser._id, date});
         setCurrentUser(undefined);
         navigate("/login", {replace: true});
     }

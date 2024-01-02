@@ -4,12 +4,13 @@ import {useCurrentUser} from "~/store/auth/hooks.tsx";
 import io from "socket.io-client";
 import {useContacts, useMessages} from "~/store/message/hooks.tsx";
 import axios from "axios";
+import {serverIP, serverPort, userAPI} from "~/url.tsx";
 
 type props = {
     children: any
 }
 
-export let socket = io.connect("http://13.50.130.221:5000");
+export let socket = io.connect(`http://${serverIP}:${serverPort}`);
 
 export default function Main(props: props) {
     const {children} = props;
@@ -43,7 +44,7 @@ export default function Main(props: props) {
     useEffect(() => {
         socket.on("receive_disconnect", (data) => {
             setContact(data._id, [["online", false], ["typing", false], ["lastSeen", data.date]]);
-            axios.post("http://13.50.130.221:5000/user/logout", {date: data.date, _id: data._id});
+            axios.post(`${userAPI}/logout`, {date: data.date, _id: data._id});
         });
         return () => {
             socket.off("receive_disconnect");
@@ -85,7 +86,7 @@ export default function Main(props: props) {
     }, [socket, contacts]);
 
     const getContacts = async () => {
-        const {data} = await axios.post("http://13.50.130.221:5000/user/all", {});
+        const {data} = await axios.post(`${userAPI}/all`, {});
         data.forEach(contact => {
             contact.typing = false;
             contact.online = contact._id === currentUser._id;

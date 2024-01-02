@@ -1,6 +1,7 @@
 import {useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import {userAPI} from "~/url.tsx";
 
 export default function Register() {
     const navigate = useNavigate();
@@ -19,7 +20,7 @@ export default function Register() {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        const {data} = await axios.post("http://13.50.130.221:5000/user/register", {
+        const {data} = await axios.post(`${userAPI}/register`, {
             email: values.email,
             password: values.password
         }, {withCredentials: true});

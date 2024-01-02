@@ -6,6 +6,7 @@ import {useState} from "react";
 import classNames from "classnames";
 import axios from "axios";
 import {setCurrentUser} from "~/store/auth/actions.tsx";
+import {serverIP, serverPort, userAPI} from "~/url.tsx";
 
 type props = {
     setValue: any
@@ -37,7 +38,7 @@ export default function Profile(props: props) {
     }
 
     const updateUser = async () => {
-        const response = await axios.patch("http://13.50.130.221:5000/user", data);
+        const response = await axios.patch(userAPI, data);
         if(response.data) {
             setCurrentUser(response.data);
             setEditFullName(false);
@@ -56,11 +57,11 @@ export default function Profile(props: props) {
             try {
                 const formData = new FormData();
                 formData.append("file", file);
-                const response1 = await axios.post("http://13.50.130.221:5000/user/uploadAvatar", formData);
+                const response1 = await axios.post(`${userAPI}/uploadAvatar`, formData);
                 let avatarPath = response1.data;
                 avatarPath = avatarPath.replace("\\", "/");
-                avatarPath = "http://13.50.130.221:5000/" + avatarPath;
-                await axios.patch("http://13.50.130.221:5000/user/", {
+                avatarPath = `http://${serverIP}:${serverPort}/` + avatarPath;
+                await axios.patch(userAPI, {
                     _id: data._id,
                     avatar: avatarPath,
                     about: data.about,
