@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db45d9cf-653d-414c-b234-42b544e62be6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/components/contact/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/contact/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/main/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/main/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/home/contacts/header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/contacts/header/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/content/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/content/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/footer/voice/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/footer/voice/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/home/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/profile/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/login/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/register/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/routes/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/routes/Auth.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="db45d9cf-653d-414c-b234-42b544e62be6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +80,7 @@
       <workItem from="1703916346607" duration="40178000" />
       <workItem from="1704004700785" duration="33505000" />
       <workItem from="1704092583220" duration="31726000" />
-      <workItem from="1704174593429" duration="20065000" />
+      <workItem from="1704174593429" duration="20673000" />
     </task>
     <servers />
   </component>
