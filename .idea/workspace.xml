@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db45d9cf-653d-414c-b234-42b544e62be6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/url.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/url.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
-    </list>
+    <list default="true" id="db45d9cf-653d-414c-b234-42b544e62be6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,7 +84,7 @@
       <workItem from="1703916346607" duration="40178000" />
       <workItem from="1704004700785" duration="33505000" />
       <workItem from="1704092583220" duration="31726000" />
-      <workItem from="1704174593429" duration="25638000" />
+      <workItem from="1704174593429" duration="25674000" />
     </task>
     <servers />
   </component>
