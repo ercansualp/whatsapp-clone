@@ -25,17 +25,6 @@ export default function Contacts(props: props) {
                 <Content>
                     <div className="grow overflow-y-auto">
                         {contacts.map((contact, index) => <Contact key={index} index={index} contact={contact} />)}
-                        <Contact key={4} contact={{_id: 1, avatar: "", fullName: "he"}} />
-                        <Contact key={5} contact={{_id: 1, avatar: "", fullName: "he"}} />
-                        <Contact key={6} contact={{_id: 1, avatar: "", fullName: "he"}} />
-                        <Contact key={7} contact={{_id: 1, avatar: "", fullName: "he"}} />
-                        <Contact key={8} contact={{_id: 1, avatar: "", fullName: "he"}} />
-                        <Contact key={9} contact={{_id: 1, avatar: "", fullName: "he"}} />
-                        <Contact key={10} contact={{_id: 1, avatar: "", fullName: "he"}} />
-                        <Contact key={11} contact={{_id: 1, avatar: "", fullName: "he"}} />
-                        <Contact key={12} contact={{_id: 1, avatar: "", fullName: "he"}} />
-                        <Contact key={13} contact={{_id: 1, avatar: "", fullName: "he"}} />
-                        <Contact key={14} contact={{_id: 1, avatar: "", fullName: "he"}} />
                     </div>
 
                     <div className="grow my-[15px] mx-4 pt-2.5 border-t border-t-[#8696a026] flex justify-center items-center text-xs font-normal leading-[15.9996px] text-[#d1d7db]">
