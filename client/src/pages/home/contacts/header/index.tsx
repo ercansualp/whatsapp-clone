@@ -30,7 +30,7 @@ export default function Header(props: props) {
         removeCookie("jsonwebtoken");
         const date = new Date();
         socket.emit("left_room", {_id: currentUser._id, date});
-        axios.post("http://localhost:5000/user/logout", {_id: currentUser._id, date});
+        axios.post("http://13.50.130.221:5000/user/logout", {_id: currentUser._id, date});
         setCurrentUser(undefined);
         navigate("/login", {replace: true});
     }

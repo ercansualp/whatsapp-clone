@@ -17,7 +17,7 @@ conn();
 const app = express();
 
 const corsOptins = {
-    origin: `http://localhost:${process.env.CLIENT_PORT}`,
+    origin: `http://13.50.130.221:${process.env.CLIENT_PORT}`,
     credentials: true
 }
 
@@ -37,7 +37,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:" + process.env.CLIENT_PORT,
+        origin: "http://13.50.130.221:" + process.env.CLIENT_PORT,
         methods: ["GET", "POST"]
     }
 });

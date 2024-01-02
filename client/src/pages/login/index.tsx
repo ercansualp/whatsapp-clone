@@ -17,7 +17,7 @@ export default function Login() {
     }
     const handleSubmit = async event => {
         event.preventDefault();
-        const {data} = await axios.post("http://localhost:5000/user/login", {
+        const {data} = await axios.post("http://13.50.130.221:5000/user/login", {
             email: values.email,
             password: values.password
         }, {withCredentials: true});
