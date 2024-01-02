@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db45d9cf-653d-414c-b234-42b544e62be6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/url.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/contact/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/contact/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/main/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/main/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/home/contacts/contact/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/contacts/contact/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/home/contacts/header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/contacts/header/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/content/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/content/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/footer/voice/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/footer/voice/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/home/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/profile/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/login/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/register/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/routes/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/routes/Auth.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/url.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/url.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,28 +34,32 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2aA3Wa7V3Ss64apMZ00Z37tLSO2" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ercan/OneDrive/Masaüstü/Projects/whatsapp-clone/server/images&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\ercan\\OneDrive\\Masaüstü\\Projects\\whatsapp-clone\\client\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/ercan/OneDrive/Masaüstü/Projects/whatsapp-clone/server/images",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\ercan\\OneDrive\\Masaüstü\\Projects\\whatsapp-clone\\client\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ercan\OneDrive\Masaüstü\Projects\whatsapp-clone\server\images" />
@@ -95,11 +88,14 @@
       <workItem from="1703916346607" duration="40178000" />
       <workItem from="1704004700785" duration="33505000" />
       <workItem from="1704092583220" duration="31726000" />
-      <workItem from="1704174593429" duration="25305000" />
+      <workItem from="1704174593429" duration="25546000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
