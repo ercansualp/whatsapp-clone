@@ -3,6 +3,16 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import fs from "fs-extra";
 
+export const logout = async (req, res) => {
+    try {
+        await User.findByIdAndUpdate(
+            req.body._id,
+            {lastSeen: req.body.date},
+            { new: true }
+        );
+    } catch(error) {}
+}
+
 export const register = async (req, res) => {
     try {
         await User.create({
@@ -56,7 +66,7 @@ export const login = async (req, res) => {
 
 export const all = async (req, res, next) => {
     try {
-        const users = await User.find({}).select({ "fullName": 1, "avatar": 1, "about": 1 });
+        const users = await User.find({}).select({ "fullName": 1, "avatar": 1, "about": 1, lastSeen: 1 });
         res.send(users);
     } catch (error) {
         res.send([]);

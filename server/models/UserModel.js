@@ -28,6 +28,11 @@ const userSchema = new Schema({
         required: false,
         default: "This application was created by Ercan SUALP.",
         trim: true
+    },
+    lastSeen: {
+        type: Date,
+        required: false,
+        default: null
     }
 }, {timestamps: true});
 

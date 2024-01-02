@@ -1,42 +1,16 @@
 import {useEffect, useRef} from "react";
 import classNames from "classnames";
-import {useContact, useCurrentUser, useSocket} from "~/store/auth/hooks.tsx";
+import {useCurrentUser} from "~/store/auth/hooks.tsx";
 import axios from "axios";
+import {setMessages} from "~/store/message/actions.tsx";
+import {useContacts, useMessages} from "~/store/message/hooks.tsx";
 
-type props = {
-    messages: any,
-    setMessages: any,
-    setTyping: any
-}
-
-export default function Content(props: props) {
-    const {messages, setMessages, setTyping} = props;
+export default function Content() {
     const currentUser = useCurrentUser();
     const messagesEndRef = useRef(null);
-    const contact = useContact();
-    const socket = useSocket();
-
-    useEffect(() => {
-        socket.on("receive_message", (message) => {
-            if(message.sender === contact._id) {
-                setMessages(prevMessages => {
-                    const newMessages = [...prevMessages, {_id: message._id, sender: contact._id, text: message.text, time: message.time}];
-                    return newMessages;
-                });
-            }
-        });
-    }, [contact, socket]);
-
-    useEffect(() => {
-        socket.on("receive_typing_message", (data) => {
-            console.log("data: ", data);
-            console.log("contact: ", contact);
-            if(data.sender === contact._id) {
-                setTyping(data.value);
-            }
-        });
-    }, [contact, socket]);
-
+    const messages = useMessages();
+    const contact = useContacts().find(contact => contact.active);
+    /*
     const getMessages = async () => {
         const {data} = await axios.get("http://localhost:5000/message", {
             headers: {
@@ -44,12 +18,15 @@ export default function Content(props: props) {
                 contactId: contact._id
             }
         });
-        setMessages(data);
+        let newMessages = JSON.parse(JSON.stringify(messages));
+        newMessages.push(data)
+        setMessages(newMessages);
     }
 
     useEffect(() => {
         getMessages();
     }, [contact]);
+     */
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -58,6 +35,13 @@ export default function Content(props: props) {
     useEffect(() => {
         scrollToBottom()
     }, [messages]);
+
+    const getMessageTime = (_messageTime) => {
+        const messageTime = new Date(_messageTime);
+        const messageHour = messageTime.getHours().toString();
+        const messageMinute = messageTime.getMinutes().toString().length === 1 ? "0" + messageTime.getMinutes().toString() : messageTime.getMinutes().toString();
+        return messageHour + ":" + messageMinute;
+    }
 
     return (
         <div className="grow bg-[#111b21] flex flex-col py-2 overflow-y-auto">
@@ -73,7 +57,7 @@ export default function Content(props: props) {
                             "bg-[#202c33]": message.sender === contact._id
                         })}>
                             <div className="text-[#e9edef] text-[14.2px] leading-[19px] mr-8">{message.text}</div>
-                            <div className="float-right bottom-0.5 right-1 text-[#ffffff99] text-[11px] leading-[15px] absolute">{message.time}</div>
+                            <div className="float-right bottom-0.5 right-1 text-[#ffffff99] text-[11px] leading-[15px] absolute">{getMessageTime(message.createdAt)}</div>
                         </div>
                     </div>
                 ))

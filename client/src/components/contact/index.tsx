@@ -1,6 +1,9 @@
 import Avatar from "~/components/avatar";
 import Hr from "~/components/hr";
-import {setContact} from "~/store/auth/actions.tsx";
+import {setActiveContact, setMessages} from "~/store/message/actions.tsx";
+import {socket} from "~/components/main";
+import axios from "axios";
+import {useCurrentUser} from "~/store/auth/hooks.tsx";
 
 type props = {
     contact: object
@@ -8,10 +11,22 @@ type props = {
 
 export default function Contact(props: props) {
     const {contact} = props;
+    const currentUser = useCurrentUser();
+
+    const getMessages = async () => {
+        const {data} = await axios.get("http://localhost:5000/message", {
+            headers: {
+                currentUserId: currentUser._id,
+                contactId: contact._id
+            }
+        });
+        setMessages(data);
+    }
 
     const handleSetContact = () => {
-        console.log("contact bilgisi: ", contact);
-        setContact(contact);
+        socket.emit("is_online", contact._id);
+        setActiveContact(contact._id)
+        getMessages();
     }
 
     return (

@@ -1,26 +1,28 @@
 import classNames from "classnames";
 import {Popover, Transition} from "@headlessui/react";
+import Avatar from "~/components/avatar";
 
 type props = {
-    index: number
+    index: number,
+    contact: object
 }
 
 export default function Contact(props: props) {
-    const {index} = props;
+    const {index, contact} = props;
     return (
         <div className="flex h-[72px] hover:bg-[#202c33] cursor-pointer transition-all group">
             <div className="w-[77px] h-18 pl-[13px] pr-[15px] flex items-center h-[73px]">
-                <img className="rounded-full" src="https://media-sof1-2.cdn.whatsapp.net/v/t61.24694-24/297610771_3165686930350984_2467151984254380118_n.jpg?stp=dst-jpg_s96x96&ccb=11-4&oh=01_AdQJtu1KIjYzXv6RPuI1dFZLzJ7jInE8lnlJX7fR9boHDw&oe=659BE5F8&_nc_sid=e6ed6c&_nc_cat=102" alt="Avatar"/>
+                <Avatar avatar={contact.avatar} width={49} height={49} />
             </div>
             <div className={classNames("grow flex flex-col justify-center pr-[15px] gap-0.5", {
                 "border-t border-t-[#8696a026]": index !== 0
             })}>
                 <div className="flex">
-                    <div className="grow text-[#e9edef] text-[17px] font-medium">Emre</div>
+                    <div className="grow text-[#e9edef] text-[17px] font-medium">{contact.fullName}</div>
                     <div className="mt-[3px] ml-1.5 text-[#8696a0] text-xs font-normal leading-[14px]">Dün</div>
                 </div>
                 <div className="text-[#d1d7db] text-sm leading-5 font-normal flex items-center gap-[11px] justify-between">
-                    <span>tmm</span>
+                    {/*<span>tmm</span>*/}
                     <Popover className="bg-red-400">
                         <Popover.Button className="hidden group-hover:block outline-none">
                             <svg viewBox="0 0 19 20" height="20" width="19" preserveAspectRatio="xMidYMid meet" className="" version="1.1" x="0px" y="0px"><title>down</title><path fill="currentColor" d="M3.8,6.7l5.7,5.7l5.7-5.7l1.6,1.6l-7.3,7.2L2.2,8.3L3.8,6.7z"></path></svg>

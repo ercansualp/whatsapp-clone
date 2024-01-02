@@ -1,15 +1,12 @@
-import {useContact, useCurrentUser, useSocket} from "~/store/auth/hooks.tsx";
+import {useCurrentUser} from "~/store/auth/hooks.tsx";
+import {setMessage} from "~/store/message/actions.tsx";
+import {useContacts, useMessage} from "~/store/message/hooks.tsx";
+import {socket} from "~/components/main";
 
-type props = {
-    message: string,
-    setMessage: any
-}
-
-export default function TypeMessage(props: props) {
-    const {message, setMessage} = props;
+export default function TypeMessage() {
     const currentUser = useCurrentUser();
-    const socket = useSocket();
-    const contact = useContact();
+    const message = useMessage();
+    const contact = useContacts().find(contact => contact.active);
 
     const handleChange = (event) => {
         const {value} = event.target;

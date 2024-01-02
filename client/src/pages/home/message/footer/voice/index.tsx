@@ -1,17 +1,14 @@
 import axios from "axios";
-import {useContact, useCurrentUser, useSocket} from "~/store/auth/hooks.tsx";
+import {useCurrentUser} from "~/store/auth/hooks.tsx";
+import {setMessage, setMessages} from "~/store/message/actions.tsx";
+import {useContacts, useMessage, useMessages} from "~/store/message/hooks.tsx";
+import {socket} from "~/components/main";
 
-type props = {
-    message: string,
-    setMessages: any,
-    setMessage: any
-}
-
-export default function Voice(props: props) {
-    const {message, setMessages, setMessage} = props;
+export default function Voice() {
     const currentUser = useCurrentUser();
-    const socket = useSocket();
-    const contact = useContact();
+    const message = useMessage();
+    const contact = useContacts().find(contact => contact.active);
+    const messages = useMessages();
 
     const submitMessage = async () => {
         const _message = message.trim();
@@ -22,23 +19,17 @@ export default function Voice(props: props) {
                 text: _message
             });
             if(data) {
-                let messageTime = new Date(data.createdAt);
-                const messageHour = messageTime.getHours().toString();
-                const messageMinute = messageTime.getMinutes().toString().length === 1 ? "0" + messageTime.getMinutes().toString() : messageTime.getMinutes().toString();
-                messageTime = messageHour + ":" + messageMinute;
                 socket.emit("send_message", {
                     recipient: contact._id,
                     message: {
                         text: _message,
-                        time: messageTime,
+                        createdAt: data.createdAt,
                         _id: data._id,
                         sender: currentUser._id
                     }
                 });
-                setMessages(prevMessages => {
-                    const newMessages = [...prevMessages, {_id: data._id, sender: currentUser._id, text: _message, time: messageTime}];
-                    return newMessages;
-                });
+                setMessages([...messages, {_id: data._id, sender: currentUser._id, text: _message, createdAt: data.createdAt}])
+
                 setMessage("");
                 socket.emit("typing_message", {
                     recipient: contact._id,

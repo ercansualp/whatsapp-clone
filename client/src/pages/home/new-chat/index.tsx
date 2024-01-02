@@ -2,11 +2,9 @@ import Search from "~/components/search";
 import Header from "~/components/header";
 import Item from "~/pages/home/new-chat/item";
 import Content from "~/components/content";
-import Hr from "~/components/hr";
 import Contact from "~/components/contact";
-import {useEffect, useState} from "react";
-import axios from "axios";
-import {setContact} from "~/store/auth/actions.tsx";
+import {useState} from "react";
+import {useContacts} from "~/store/message/hooks.tsx";
 
 type props = {
     setValue: any
@@ -19,52 +17,8 @@ const newItems = [
 
 export default function NewChat(props: props) {
     const {setValue} = props;
-    const [contactsWithoutLetters, setContactsWithoutLetters] = useState();
-    const [contacts, setContacts] = useState([]);
     const [search, setSearch] = useState("");
-
-    const getContacts = async () => {
-        const {data} = await axios.post("http://localhost:5000/user/all", {});
-        // fullName'e göre alfabetik sıralama yap
-        data.sort((a, b) => {
-            const fullNameA = a.fullName.toUpperCase(); // Büyük/küçük harf duyarsız sıralama
-            const fullNameB = b.fullName.toUpperCase();
-
-            if (fullNameA < fullNameB) {
-                return -1;
-            } else if (fullNameA > fullNameB) {
-                return 1;
-            } else {
-                return 0;
-            }
-        });
-        const newData = [];
-        let j = 0;
-        for(let i = 0; i < data.length; i++) {
-            if(i === 0) {
-                newData.push({
-                    letter: data[i].fullName[0].toUpperCase(),
-                    contacts: [{...data[i]}]
-                });
-            } else {
-                if(data[i].fullName[0].toUpperCase() === data[i-1].fullName[0].toUpperCase()) {
-                    newData[j].contacts.push(data[i]);
-                } else {
-                    newData.push({
-                        letter: data[i].fullName[0].toUpperCase(),
-                        contacts: [{...data[i]}]
-                    });
-                    j++;
-                }
-            }
-        }
-        setContactsWithoutLetters(data);
-        setContacts(newData);
-    }
-
-    useEffect(() => {
-        getContacts();
-    }, [])
+    const contacts = useContacts();
 
     return (
         <div className="grow flex flex-col overflow-y-auto overflow-x-hidden">
@@ -89,28 +43,8 @@ export default function NewChat(props: props) {
                                     </defs>
                                 </svg>
                             </div>
-                        ) : search && search.length === 1 ? contacts.filter(contact => contact.letter === search.toUpperCase()).map((contact, index) => (
-                            <>
-                                <div key={index} className="h-[72px] pt-[30px] pl-8 pb-[15px] text-[#008069] text-base font-normal leading-4">{contact.letter}</div>
-                                <Hr/>
-                                {
-                                    contact.contacts.map((c, i) => (
-                                        <Contact key={i} contact={c} />
-                                    ))
-                                }
-                            </>
-                        )) : search && search.length !== 1 ? contactsWithoutLetters.filter(c => c.fullName.toLowerCase().includes(search.toLowerCase())).map((contact, index) => (
+                        ) : contacts.map((contact, index) => (
                             <Contact key={index} contact={contact} />
-                        )) : contacts.map((contact, index) => (
-                            <>
-                                <div key={index} className="h-[72px] pt-[30px] pl-8 pb-[15px] text-[#008069] text-base font-normal leading-4">{contact.letter}</div>
-                                <Hr/>
-                                {
-                                    contact.contacts.map((c, i) => (
-                                        <Contact key={i} contact={c} />
-                                    ))
-                                }
-                            </>
                         ))
                     }
                 </div>

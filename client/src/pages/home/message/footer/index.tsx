@@ -3,21 +3,17 @@ import Voice from "./voice";
 import {useRef, useState} from "react";
 import EmojiPicker from "emoji-picker-react";
 import {useClickAway} from "react-use";
-import {useContact, useCurrentUser, useSocket} from "~/store/auth/hooks.tsx";
+import {useCurrentUser} from "~/store/auth/hooks.tsx";
+import {setMessage} from "~/store/message/actions.tsx";
+import {socket} from "~/components/main";
+import {useContacts} from "~/store/message/hooks.tsx";
 
-type props = {
-    setMessages: any
-}
-
-export default function Footer(props: props) {
-    const {setMessages} = props;
-    const [message, setMessage] = useState("");
+export default function Footer() {
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
     const ref = useRef(null);
     const showEmojiPickerRef = useRef(null);
     const currentUser = useCurrentUser();
-    const contact = useContact();
-    const socket = useSocket();
+    const contact = useContacts().find(contact => contact.active);
 
     useClickAway(ref, (event) => {
         if(event.target.parentElement !== showEmojiPickerRef.current && event.target.parentElement.parentElement !== showEmojiPickerRef.current){
@@ -46,8 +42,8 @@ export default function Footer(props: props) {
                     <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" fill="none"><title>attach-menu-plus</title><path fillRule="evenodd" clipRule="evenodd" d="M20.5 13.2501L20.5 10.7501L13.25 10.7501L13.25 3.5L10.75 3.5L10.75 10.7501L3.5 10.7501L3.5 13.2501L10.75 13.2501L10.75 20.5L13.25 20.5L13.25 13.2501L20.5 13.2501Z" fill="currentColor"></path></svg>
                 </button>
             </div>
-            <TypeMessage message={message} setMessage={setMessage} />
-            <Voice message={message} setMessages={setMessages} setMessage={setMessage} />
+            <TypeMessage />
+            <Voice />
         </div>
     )
 }

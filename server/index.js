@@ -41,16 +41,94 @@ const io = new Server(server, {
         methods: ["GET", "POST"]
     }
 });
+/*
 io.on("connection", (socket) => {
-    socket.on("join_room", (data) => {
-        socket.join(data);
+    const checkIsUserStillOnline = (_id) => {
+        let online = false;
+        for (const [key, value] of io.sockets.adapter.rooms) {
+            if(key === _id) {
+                if(value.size !== 1) online = true;
+                break;
+            }
+        }
+        return online;
+    }
+
+    socket.on("join_room", (_id) => {
+        socket.join(_id);
+        io.sockets.emit("receive_online", _id);
     });
     socket.on("send_message", (data) => {
         socket.to(data.recipient).emit("receive_message", data.message);
     });
     socket.on("typing_message", (data) => {
-        console.log("data: ", data);
         socket.to(data.recipient).emit("receive_typing_message", {sender: data.sender, value: data.value});
+    });
+
+    socket.on("left_room", (_id) => {
+        if(!checkIsUserStillOnline(_id)) io.sockets.emit("receive_offline", _id);
+    });
+
+    socket.on("is_online", (data) => {
+        let online = false;
+        for (const [key, value] of io.sockets.adapter.rooms) {
+            if(key === data._id) {
+                online = true;
+                break;
+            }
+        }
+        socket.emit("receive_isContactOnline", {...data, online});
+    })
+    socket.on('disconnect', function () {
+        const rooms = Object.fromEntries(io.sockets.adapter.rooms);
+        io.sockets.emit('receive_disconnect', rooms);
+    });
+});
+*/
+
+const socketRooms = {}; // Kullanıcıların odalarını saklamak için bir nesne
+
+io.on('connection', function (socket) {
+    socket.on('join_room', function (_id) {
+        socket.join(_id);
+
+        // Kullanıcıyı odasına ilişkilendir
+        socketRooms[socket.id] = _id;
+
+        // Kullanıcı bağlandığında
+        io.sockets.emit('receive_online', _id);
+
+        // Kullanıcı bağlantısı kesildiğinde
+        socket.on('disconnect', function () {
+            if(!Object.fromEntries(io.sockets.adapter.rooms)[socketRooms[socket.id]]) {
+                io.sockets.emit("receive_disconnect", {_id, date: new Date()});
+                delete socketRooms[socket.id];
+            }
+            io.sockets.emit("receive_typing_message", {sender: _id, value: false});
+        });
+
+        socket.on("typing_message", (data) => {
+            socket.to(data.recipient).emit("receive_typing_message", {sender: data.sender, value: data.value});
+        });
+
+        socket.on("left_room", (data) => {
+            io.sockets.emit("receive_offline", {_id: data._id, date: data.date});
+        });
+
+        socket.on("send_message", (data) => {
+            socket.to(data.recipient).emit("receive_message", data.message);
+        });
+
+        socket.on("is_online", (_id) => {
+            let online = false;
+            for (const [key, value] of io.sockets.adapter.rooms) {
+                if(key === _id) {
+                    online = true;
+                    break;
+                }
+            }
+            socket.emit("receive_isContactOnline", {_id, online});
+        })
     });
 });
 

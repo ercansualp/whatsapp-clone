@@ -1,34 +1,12 @@
-import {useCookies} from "react-cookie";
-import {useNavigate} from "react-router-dom";
-import {setCurrentUser} from "~/store/auth/actions.tsx";
 import Contacts from "~/pages/home/contacts";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import Communities from "~/pages/home/communities";
 import NewChat from "~/pages/home/new-chat";
 import Message from "~/pages/home/message";
 import Profile from "~/pages/home/profile";
-import {useCurrentUser, useSocket} from "~/store/auth/hooks.tsx";
 
 export default function Home() {
-    const navigate = useNavigate();
-    const [cookies, setCookie, removeCookie] = useCookies([]);
     const [value, setValue] = useState(0);
-    const currentUser = useCurrentUser();
-    const socket = useSocket();
-
-    const handleLogout = () => {
-        removeCookie("jsonwebtoken");
-        setCurrentUser(undefined);
-        navigate("/login", {replace: true});
-    }
-
-    const getContacts = () => {
-
-    }
-
-    useEffect(() => {
-        socket.emit("join_room", currentUser._id);
-    }, [])
 
     return (
         <div className="bg-[#0c1317] h-screen flex items-center overflow-hidden">

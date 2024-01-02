@@ -3,8 +3,7 @@ import Loading from "~/routes/Loading.tsx";
 import {useCookies} from "react-cookie";
 import {useEffect} from "react";
 import axios from "axios";
-import {setCurrentUser, setLoading, setSocket} from "~/store/auth/actions.tsx";
-import io from "socket.io-client";
+import {setCurrentUser, setLoading} from "~/store/auth/actions.tsx";
 
 type props = {
     children: node
@@ -26,8 +25,6 @@ export default function Auth(props: props) {
                 setCurrentUser(undefined);
             }
             else {
-                const socket = io.connect("http://localhost:5000");
-                setSocket(socket);
                 setCurrentUser(data);
             }
         }

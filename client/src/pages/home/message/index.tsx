@@ -2,22 +2,19 @@ import Header from "./header";
 import Content from "./content";
 import Footer from "./footer";
 import DownloadWhatsapp from "~/assets/img/DownloadWhatsapp.png";
-import {useState} from "react";
-import {useContact} from "~/store/auth/hooks.tsx";
+import {useContacts} from "~/store/message/hooks.tsx";
 
 export default function Message() {
-    const [messages, setMessages] = useState([]);
-    const [typing, setTyping] = useState(false);
-    const contact = useContact();
+    const contact = useContacts().find(contact => contact.active);
 
     return (
         <div className="grow flex flex-col border-l border-l-[#8696a026]">
             {
                 contact ? (
                     <>
-                        <Header typing={typing} />
-                        <Content messages={messages} setMessages={setMessages} setTyping={setTyping} />
-                        <Footer setMessages={setMessages} />
+                        <Header />
+                        <Content />
+                        <Footer />
                     </>
                 ) : (
                     <div className="relative bg-[#222e35] w-full h-full flex items-center justify-center py-7 border-l border-l-[#8696a026]">

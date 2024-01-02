@@ -4,6 +4,11 @@ import {Popover, Transition} from "@headlessui/react";
 import {useClickAway} from 'react-use';
 import {useRef, useState} from "react";
 import classNames from "classnames";
+import {setCurrentUser} from "~/store/auth/actions.tsx";
+import {useNavigate} from "react-router-dom";
+import {useCookies} from "react-cookie";
+import {socket} from "~/components/main";
+import axios from "axios";
 
 type props = {
     setValue: any;
@@ -11,6 +16,8 @@ type props = {
 
 export default function Header(props: props) {
     const {setValue} = props;
+    const navigate = useNavigate();
+    const [cookies, setCookie, removeCookie] = useCookies([]);
     const currentUser = useCurrentUser();
     const ref = useRef(null);
     const [showMenu, setShowMenu] = useState(false);
@@ -18,6 +25,15 @@ export default function Header(props: props) {
     useClickAway(ref, () => {
         setShowMenu(false);
     });
+
+    const handleLogout = () => {
+        removeCookie("jsonwebtoken");
+        const date = new Date();
+        socket.emit("left_room", {_id: currentUser._id, date});
+        axios.post("http://localhost:5000/user/logout", {_id: currentUser._id, date});
+        setCurrentUser(undefined);
+        navigate("/login", {replace: true});
+    }
 
     return (
         <header className="py-2.5 px-4 flex justify-between bg-[#202c33] h-[59px]">
@@ -119,7 +135,7 @@ export default function Header(props: props) {
                                     <div className="pl-6 pr-[58px] flex items-center cursor-pointer hover:bg-[#182229] transition-all h-10">Ayarlar</div>
                                 </li>
                                 <li>
-                                    <div className="pl-6 pr-[58px] flex items-center cursor-pointer hover:bg-[#182229] transition-all h-10">Çıkış yap</div>
+                                    <div onClick={handleLogout} className="pl-6 pr-[58px] flex items-center cursor-pointer hover:bg-[#182229] transition-all h-10">Çıkış yap</div>
                                 </li>
                                 <hr className="mx-[1px] border-t border-t-[#8696a026] my-1"/>
                                 <li>

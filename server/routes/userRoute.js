@@ -19,6 +19,7 @@ const upload = multer({storage});
 router.post("/",checkUser);
 router.post("/login", userController.login);
 router.post("/register", userController.register);
+router.post("/logout", userController.logout);
 router.post("/all", userController.all);
 router.patch("/", userController.update);
 router.post("/uploadAvatar", upload.single("file"), (req, res, next) => {
