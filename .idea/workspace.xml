@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="db45d9cf-653d-414c-b234-42b544e62be6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/client/src/components/contact/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/contact/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/main/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/main/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/home/contacts/header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/contacts/header/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/content/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/content/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/footer/voice/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/footer/voice/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/home/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/profile/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/register/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/routes/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/routes/Auth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2aA3Wa7V3Ss64apMZ00Z37tLSO2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ercan/OneDrive/Masaüstü/Projects/whatsapp-clone/server/images&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\ercan\\OneDrive\\Masaüstü\\Projects\\whatsapp-clone\\client\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ercan\OneDrive\Masaüstü\Projects\whatsapp-clone\server\images" />
+      <recent name="C:\Users\ercan\OneDrive\Masaüstü\Projects\whatsapp-clone\client\src\assets\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ercan\OneDrive\Masaüstü\Projects\whatsapp-clone\server\routes" />
+      <recent name="C:\Users\ercan\OneDrive\Masaüstü\Projects\whatsapp-clone\client\src\pages\home\contacts" />
+      <recent name="C:\Users\ercan\OneDrive\Masaüstü\Projects\whatsapp-clone\client\src\components" />
+      <recent name="C:\Users\ercan\OneDrive\Masaüstü\Projects\whatsapp-clone\client\src\pages\home" />
+      <recent name="C:\Users\ercan\OneDrive\Masaüstü\Projects\whatsapp-clone\client\src\layouts\main\sidebar" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="db45d9cf-653d-414c-b234-42b544e62be6" name="Changes" comment="" />
+      <created>1703747590432</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1703747590432</updated>
+      <workItem from="1703747593481" duration="1016000" />
+      <workItem from="1703748629131" duration="19223000" />
+      <workItem from="1703834797596" duration="17364000" />
+      <workItem from="1703861396193" duration="8343000" />
+      <workItem from="1703916346607" duration="40178000" />
+      <workItem from="1704004700785" duration="33505000" />
+      <workItem from="1704092583220" duration="31726000" />
+      <workItem from="1704174593429" duration="20065000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
