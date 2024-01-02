@@ -1,6 +1,11 @@
 import classNames from "classnames";
 import {Popover, Transition} from "@headlessui/react";
 import Avatar from "~/components/avatar";
+import {setActiveContact, setMessages} from "~/store/message/actions.tsx";
+import {useContacts} from "~/store/message/hooks.tsx";
+import {socket} from "~/components/main";
+import axios from "axios";
+import {useCurrentUser} from "~/store/auth/hooks.tsx";
 
 type props = {
     index: number,
@@ -9,8 +14,26 @@ type props = {
 
 export default function Contact(props: props) {
     const {index, contact} = props;
+    const currentUser = useCurrentUser();
+
+    const getMessages = async () => {
+        const {data} = await axios.get("http://localhost:5000/message", {
+            headers: {
+                currentUserId: currentUser._id,
+                contactId: contact._id
+            }
+        });
+        setMessages(data);
+    }
+
+    const handleSetContact = () => {
+        socket.emit("is_online", contact._id);
+        setActiveContact(contact._id)
+        getMessages();
+    }
+
     return (
-        <div className="flex h-[72px] hover:bg-[#202c33] cursor-pointer transition-all group">
+        <div className="flex h-[72px] hover:bg-[#202c33] cursor-pointer transition-all group" onClick={handleSetContact}>
             <div className="w-[77px] h-18 pl-[13px] pr-[15px] flex items-center h-[73px]">
                 <Avatar avatar={contact.avatar} width={49} height={49} />
             </div>

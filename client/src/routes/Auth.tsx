@@ -17,7 +17,7 @@ export default function Auth(props: props) {
     const verifyUser = async () => {
         if(!cookies.jsonwebtoken) setCurrentUser(undefined);
         else {
-            const {data} = await axios.post("http://13.50.130.221:5000/user",{}, {
+            const {data} = await axios.post("http://localhost:5000/user",{}, {
                 withCredentials: true
             });
             if(!data) {

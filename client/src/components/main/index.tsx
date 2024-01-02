@@ -9,7 +9,7 @@ type props = {
     children: any
 }
 
-export let socket = io.connect("http://13.50.130.221:5000");
+export let socket = io.connect("http://localhost:5000");
 
 export default function Main(props: props) {
     const {children} = props;
@@ -43,7 +43,7 @@ export default function Main(props: props) {
     useEffect(() => {
         socket.on("receive_disconnect", (data) => {
             setContact(data._id, [["online", false], ["typing", false], ["lastSeen", data.date]]);
-            axios.post("http://13.50.130.221:5000/user/logout", {date: data.date, _id: data._id});
+            axios.post("http://localhost:5000/user/logout", {date: data.date, _id: data._id});
         });
         return () => {
             socket.off("receive_disconnect");
@@ -88,7 +88,7 @@ export default function Main(props: props) {
     }, [socket, contacts]);
 
     const getContacts = async () => {
-        const {data} = await axios.post("http://13.50.130.221:5000/user/all", {});
+        const {data} = await axios.post("http://localhost:5000/user/all", {});
         data.forEach(contact => {
             contact.typing = false;
             contact.online = contact._id === currentUser._id;

@@ -13,7 +13,7 @@ export default function Voice() {
     const submitMessage = async () => {
         const _message = message.trim();
         if(_message) {
-            const {data} = await axios.post("http://13.50.130.221:5000/message", {
+            const {data} = await axios.post("http://localhost:5000/message", {
                 sender: currentUser._id,
                 recipient: contact._id,
                 text: _message

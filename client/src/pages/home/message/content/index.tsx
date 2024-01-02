@@ -12,7 +12,7 @@ export default function Content() {
     const contact = useContacts().find(contact => contact.active);
     /*
     const getMessages = async () => {
-        const {data} = await axios.get("http://13.50.130.221:5000/message", {
+        const {data} = await axios.get("http://localhost:5000/message", {
             headers: {
                 currentUserId: currentUser._id,
                 contactId: contact._id
