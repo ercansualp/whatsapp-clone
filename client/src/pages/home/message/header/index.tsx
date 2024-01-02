@@ -24,7 +24,7 @@ export default function Header() {
                 saat = saat.toString().length === 1 ? "0" + saat.toString() : saat.toString();
                 let dakika = verilenTarih.getMinutes();
                 dakika = dakika.toString().length === 1 ? "0" + dakika.toString() : dakika.toString();
-                return "Bugün " + saat + ":" + dakika;
+                return "son görülme bugün " + saat + ":" + dakika;
             } else {
                 // Belirtilen tarih bu hafta içinde, ama bugün değil, gün, saat ve dakika bilgisi
                 const gunAdi = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"][verilenTarih.getDay()];
@@ -32,16 +32,16 @@ export default function Header() {
                 saat = saat.toString().length === 1 ? "0" + saat.toString() : saat.toString();
                 let dakika = verilenTarih.getMinutes();
                 dakika = dakika.toString().length === 1 ? "0" + dakika.toString() : dakika.toString();
-                return gunAdi + " " + saat + ":" + dakika
+                return "son görülme " + gunAdi + " " + saat + ":" + dakika
             }
         } else {
             // Belirtilen tarih bu hafta içinde değil, tarih, saat ve dakika bilgisi
             const tarih = verilenTarih.toLocaleDateString();
             let saat = verilenTarih.getHours();
-                saat = saat.toString().length === 1 ? "0" + saat.toString() : saat.toString();
-                let dakika = verilenTarih.getMinutes();
-                dakika = dakika.toString().length === 1 ? "0" + dakika.toString() : dakika.toString();
-            return tarih + " " + saat + ":" + dakika
+            saat = saat.toString().length === 1 ? "0" + saat.toString() : saat.toString();
+            let dakika = verilenTarih.getMinutes();
+            dakika = dakika.toString().length === 1 ? "0" + dakika.toString() : dakika.toString();
+            return "son görülme " + tarih + " " + saat + ":" + dakika
         }
     }
 

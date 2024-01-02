@@ -2,7 +2,6 @@ import classNames from "classnames";
 import {Popover, Transition} from "@headlessui/react";
 import Avatar from "~/components/avatar";
 import {setActiveContact, setMessages} from "~/store/message/actions.tsx";
-import {useContacts} from "~/store/message/hooks.tsx";
 import {socket} from "~/components/main";
 import axios from "axios";
 import {useCurrentUser} from "~/store/auth/hooks.tsx";

@@ -75,9 +75,6 @@ export default function Main(props: props) {
     }, [socket, contacts]);
     useEffect(() => {
         socket.on("receive_message", (message) => {
-            console.log("mesajlar: ", messages);
-            console.log("message: ", message);
-
             if(contacts.find(contact => contact.active) && contacts.find(contact => contact.active)._id === message.sender) {
                 setMessages([...messages, message]);
             }
