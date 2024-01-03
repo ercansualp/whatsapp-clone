@@ -3,7 +3,6 @@ import Header from "~/pages/home/contacts/header";
 import Contact from "~/pages/home/contacts/contact";
 import Content from "~/components/content";
 import {useContacts} from "~/store/message/hooks.tsx";
-import {useEffect} from "react";
 
 type props = {
     setValue: any
