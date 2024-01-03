@@ -9,6 +9,21 @@ export const addMessage = async (req, res) => {
     }
 }
 
+export const deleteMessage = async (req, res) => {
+    try {
+        const query = {
+            $or: [
+                { sender: req.query.id1, recipient: req.query.id2 },
+                { sender: req.query.id2, recipient: req.query.id1 }
+            ]
+        };
+        await messageModel.deleteMany(query);
+        res.send(true);
+    } catch(error) {
+        res.send(false);
+    }
+}
+
 export const getMessages = async (req, res) => {
     try {
         const query = {

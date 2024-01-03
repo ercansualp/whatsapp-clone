@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import {act} from "react-dom/test-utils";
 
 type initialState = {
     messages: array,
@@ -35,6 +34,6 @@ export const message = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { _setMessages, _setMessage, _setContacts, _setActiveContact } = message.actions
+export const { _setMessages, _setMessage, _setContacts, _setActiveContact, _getMessages } = message.actions
 
 export default message.reducer

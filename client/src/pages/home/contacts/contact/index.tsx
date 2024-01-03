@@ -26,14 +26,26 @@ export default function Contact(props: props) {
         setMessages(data);
     }
 
-    const handleSetContact = () => {
+    const handleSetContact = async () => {
         socket.emit("is_online", contact._id);
         setActiveContact(contact._id)
-        getMessages();
+        await getMessages();
+    }
+
+    const handleDeleteMessages = async () => {
+        const {data} = await axios.delete(messageAPI, {
+            params: {
+                id1: currentUser._id,
+                id2: contact._id
+            }
+        });
+        if(data) {
+            getMessages();
+        }
     }
 
     return (
-        <div className="flex h-[72px] hover:bg-[#202c33] cursor-pointer transition-all group" onClick={handleSetContact}>
+        <div className="flex h-[72px] hover:bg-[#202c33] cursor-pointer transition-all group relative" onClick={handleSetContact}>
             <div className="w-[77px] h-18 pl-[13px] pr-[15px] flex items-center h-[73px]">
                 <Avatar avatar={contact.avatar} width={49} height={49} />
             </div>
@@ -46,8 +58,8 @@ export default function Contact(props: props) {
                 </div>
                 <div className="text-[#d1d7db] text-sm leading-5 font-normal flex items-center gap-[11px] justify-between">
                     {/*<span>tmm</span>*/}
-                    <Popover className="bg-red-400">
-                        <Popover.Button className="hidden group-hover:block outline-none">
+                    <Popover>
+                        <Popover.Button className="hidden group-hover:block outline-none transition-all absolute right-12 top-7">
                             <svg viewBox="0 0 19 20" height="20" width="19" preserveAspectRatio="xMidYMid meet" className="" version="1.1" x="0px" y="0px"><title>down</title><path fill="currentColor" d="M3.8,6.7l5.7,5.7l5.7-5.7l1.6,1.6l-7.3,7.2L2.2,8.3L3.8,6.7z"></path></svg>
                         </Popover.Button>
                         <Transition
@@ -57,13 +69,13 @@ export default function Contact(props: props) {
                             leave="transition duration-75 ease-out"
                             leaveFrom="transform scale-100 opacity-100"
                             leaveTo="transform scale-95 opacity-0"
-                            className="absolute max-w-[340px] py-[9px] bg-[#233138] z-50"
+                            className="absolute max-w-[340px] py-[9px] bg-[#233138] z-50 right-12"
                         >
                             <Popover.Panel>
                                 <ul>
                                     <li className="h-10 pl-6 pr-[58px] flex items-center hover:bg-[#182229] transition-all">Sohbeti arşivle</li>
                                     <li className="h-10 pl-6 pr-[58px] flex items-center hover:bg-[#182229] transition-all">Bildirimleri sessize al</li>
-                                    <li className="h-10 pl-6 pr-[58px] flex items-center hover:bg-[#182229] transition-all">Sohbeti sil</li>
+                                    <li className="h-10 pl-6 pr-[58px] flex items-center hover:bg-[#182229] transition-all" onClick={handleDeleteMessages}>Sohbeti sil</li>
                                     <li className="h-10 pl-6 pr-[58px] flex items-center hover:bg-[#182229] transition-all">Sohbeti sabitle</li>
                                     <li className="h-10 pl-6 pr-[58px] flex items-center hover:bg-[#182229] transition-all">Okunmadı olarak işaretle</li>
                                     <li className="h-10 pl-6 pr-[58px] flex items-center hover:bg-[#182229] transition-all">Engelle</li>
