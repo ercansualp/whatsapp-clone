@@ -54,7 +54,7 @@ export default function Content() {
                         "mb-3": index !== messages.length-1 && messages[index+1].sender !== message.sender
                     })}>
                         <div className={classNames("rounded-[7.5px] pt-[6px] pr-[7px] pb-[8px] pl-[9px] font-normal flex relative max-w-[65%] max-1301:max-w-[75%] max-1025:max-w-[85%] max-901:max-w-[95%]", {
-                            "bg-[#005c4b]": message.sender === currentUser._id,
+                            "!bg-[#005c4b]": message.sender === currentUser._id,
                             "bg-[#202c33]": message.sender === contact._id
                         })}>
                             <div className="text-[#e9edef] text-[14.2px] leading-[19px] mr-8">{message.text}</div>

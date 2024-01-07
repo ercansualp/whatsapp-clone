@@ -3,9 +3,11 @@ import Call from "./call";
 import Search from "./search";
 import Menu from "./menu";
 import {useContacts} from "~/store/message/hooks.tsx";
+import {useCurrentUser} from "~/store/auth/hooks.tsx";
 
 export default function Header() {
     const contact = useContacts().find(contact => contact.active);
+    const currentUser = useCurrentUser();
 
     const getLastSeen = (date) => {
         // Verilen tarih bilgisi
@@ -51,9 +53,17 @@ export default function Header() {
                 <Avatar avatar={contact.avatar} width={40} height={40} />
             </div>
             <div className="grow flex flex-col">
-                <span className="text-[#e9edef] leading-[21px] text-base font-medium">{contact.fullName}</span>
+                <div className="text-[#e9edef] leading-[21px] text-base font-medium flex items-center">
+                    {contact.fullName}
+                    {contact._id === currentUser._id && " (Siz)"}
+                </div>
                 <span className="text-[13px] text-[#8696a0] font-normal leading-[20.0005px]">
-                    {contact.typing ? "yazıyor..." : contact.online ? "çevrimiçi" : getLastSeen(contact.lastSeen)}
+                    {
+                        contact._id === currentUser._id ? "Kendinize mesaj gönderin" :
+                        contact.typing ? "yazıyor..." :
+                        contact.online ? "çevrimiçi" :
+                        getLastSeen(contact.lastSeen)
+                    }
                 </span>
             </div>
             <div className="ml-5 flex pl-2.5 gap-x-2.5 items-center">

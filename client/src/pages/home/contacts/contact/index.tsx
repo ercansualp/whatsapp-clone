@@ -53,7 +53,10 @@ export default function Contact(props: props) {
                 "border-t border-t-[#8696a026]": index !== 0
             })}>
                 <div className="flex">
-                    <div className="grow text-[#e9edef] text-[17px] font-medium">{contact.fullName}</div>
+                    <div className="grow text-[#e9edef] text-[17px] font-medium">
+                        {contact.fullName}
+                        {contact._id === currentUser._id && " (Siz)"}
+                    </div>
                     <div className="mt-[3px] ml-1.5 text-[#8696a0] text-xs font-normal leading-[14px]">Dün</div>
                 </div>
                 <div className="text-[#d1d7db] text-sm leading-5 font-normal flex items-center gap-[11px] justify-between">
