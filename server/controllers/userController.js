@@ -17,6 +17,7 @@ export const register = async (req, res) => {
     try {
         await User.create({
             email: req.body.email,
+            fullName: req.body.fullName,
             password: req.body.password
         });
         res.send(true);
