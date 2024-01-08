@@ -1,45 +1,11 @@
-import axios from "axios";
-import {useCurrentUser} from "~/store/auth/hooks.tsx";
-import {setMessage, setMessages} from "~/store/message/actions.tsx";
-import {useContacts, useMessage, useMessages} from "~/store/message/hooks.tsx";
-import {socket} from "~/components/main";
-import {messageAPI} from "~/url.tsx";
+import {useMessage} from "~/store/message/hooks.tsx";
+type props = {
+    submitMessage: any
+}
 
-export default function Voice() {
-    const currentUser = useCurrentUser();
+export default function Voice(props: props) {
+    const { submitMessage } = props;
     const message = useMessage();
-    const contact = useContacts().find(contact => contact.active);
-    const messages = useMessages();
-
-    const submitMessage = async () => {
-        const _message = message.trim();
-        if(_message) {
-            const {data} = await axios.post(messageAPI, {
-                sender: currentUser._id,
-                recipient: contact._id,
-                text: _message
-            });
-            if(data) {
-                socket.emit("send_message", {
-                    recipient: contact._id,
-                    message: {
-                        text: _message,
-                        createdAt: data.createdAt,
-                        _id: data._id,
-                        sender: currentUser._id
-                    }
-                });
-                setMessages([...messages, {_id: data._id, sender: currentUser._id, text: _message, createdAt: data.createdAt}])
-
-                setMessage("");
-                socket.emit("typing_message", {
-                    recipient: contact._id,
-                    sender: currentUser._id,
-                    value: false
-                });
-            }
-        }
-    }
 
     if(message) {
         return (

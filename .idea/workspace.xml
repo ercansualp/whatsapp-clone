@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db45d9cf-653d-414c-b234-42b544e62be6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/footer/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/footer/type-message/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/footer/type-message/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/footer/voice/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/footer/voice/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/url.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/url.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +106,7 @@
       <workItem from="1704625912963" duration="1634000" />
       <workItem from="1704722485528" duration="2821000" />
       <workItem from="1704726818879" duration="33000" />
-      <workItem from="1704729018723" duration="365000" />
+      <workItem from="1704729018723" duration="1200000" />
     </task>
     <servers />
   </component>

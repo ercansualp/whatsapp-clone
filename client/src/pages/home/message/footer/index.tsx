@@ -4,15 +4,19 @@ import {useRef, useState} from "react";
 import EmojiPicker from "emoji-picker-react";
 import {useClickAway} from "react-use";
 import {useCurrentUser} from "~/store/auth/hooks.tsx";
-import {setMessage} from "~/store/message/actions.tsx";
+import {setMessage, setMessages} from "~/store/message/actions.tsx";
 import {socket} from "~/components/main";
-import {useContacts} from "~/store/message/hooks.tsx";
+import {useContacts, useMessage, useMessages} from "~/store/message/hooks.tsx";
+import axios from "axios";
+import {messageAPI} from "~/url.tsx";
 
 export default function Footer() {
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
     const ref = useRef(null);
     const showEmojiPickerRef = useRef(null);
     const currentUser = useCurrentUser();
+    const message = useMessage();
+    const messages = useMessages();
     const contact = useContacts().find(contact => contact.active);
 
     useClickAway(ref, (event) => {
@@ -31,6 +35,36 @@ export default function Footer() {
         });
     }
 
+    const submitMessage = async () => {
+        const _message = message.trim();
+        if(_message) {
+            const {data} = await axios.post(messageAPI, {
+                sender: currentUser._id,
+                recipient: contact._id,
+                text: _message
+            });
+            if(data) {
+                socket.emit("send_message", {
+                    recipient: contact._id,
+                    message: {
+                        text: _message,
+                        createdAt: data.createdAt,
+                        _id: data._id,
+                        sender: currentUser._id
+                    }
+                });
+                setMessages([...messages, {_id: data._id, sender: currentUser._id, text: _message, createdAt: data.createdAt}])
+
+                setMessage("");
+                socket.emit("typing_message", {
+                    recipient: contact._id,
+                    sender: currentUser._id,
+                    value: false
+                });
+            }
+        }
+    }
+
     return (
         <div className="min-h-[62px] bg-[#202c33] px-4 py-[5px] flex items-center text-[#8696a0]">
             <div className="py-[5px] flex items-center">
@@ -42,8 +76,8 @@ export default function Footer() {
                     <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" fill="none"><title>attach-menu-plus</title><path fillRule="evenodd" clipRule="evenodd" d="M20.5 13.2501L20.5 10.7501L13.25 10.7501L13.25 3.5L10.75 3.5L10.75 10.7501L3.5 10.7501L3.5 13.2501L10.75 13.2501L10.75 20.5L13.25 20.5L13.25 13.2501L20.5 13.2501Z" fill="currentColor"></path></svg>
                 </button>
             </div>
-            <TypeMessage />
-            <Voice />
+            <TypeMessage submitMessage={submitMessage} />
+            <Voice submitMessage={submitMessage} />
         </div>
     )
 }
