@@ -6,11 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="db45d9cf-653d-414c-b234-42b544e62be6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/content/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/content/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/footer/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/footer/type-message/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/footer/type-message/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/footer/voice/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/footer/voice/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/url.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/url.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/MessageModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/MessageModel.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +107,12 @@
       <workItem from="1704625912963" duration="1634000" />
       <workItem from="1704722485528" duration="2821000" />
       <workItem from="1704726818879" duration="33000" />
-      <workItem from="1704729018723" duration="1200000" />
+      <workItem from="1704729018723" duration="1564000" />
+      <workItem from="1704736140967" duration="613000" />
+      <workItem from="1704743418786" duration="1375000" />
+      <workItem from="1704796421945" duration="1523000" />
+      <workItem from="1704804358032" duration="1173000" />
+      <workItem from="1704816908020" duration="191000" />
     </task>
     <servers />
   </component>
