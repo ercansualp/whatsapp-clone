@@ -101,7 +101,7 @@ export default function Main(props: props) {
     }, [socket, contacts]);
 
     const getContacts = async () => {
-        const {data} = await axios.post(`${userAPI}/all`, {});
+        const {data} = await axios.get(userAPI);
         data.forEach(contact => {
             contact.typing = false;
             contact.online = contact._id === currentUser._id;

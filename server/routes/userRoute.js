@@ -17,10 +17,10 @@ const storage = multer.diskStorage({
 const upload = multer({storage});
 
 router.post("/",checkUser);
+router.get("/",userController.GetAllContacts);
 router.post("/login", userController.login);
 router.post("/register", userController.register);
 router.post("/logout", userController.logout);
-router.post("/all", userController.all);
 router.patch("/", userController.update);
 router.post("/uploadAvatar", upload.single("file"), (req, res, next) => {
     res.send(req.file.path);
