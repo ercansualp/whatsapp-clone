@@ -25,9 +25,8 @@ export default function Footer() {
         }
     });
 
-    const handleEmojiClick = (_emoji) => {
-        const {emoji} = _emoji;
-        setMessage(message + emoji);
+    const handleEmojiClick = emoji => {
+        setMessage(message + emoji.emoji);
         socket.emit("typing_message", {
             recipient: contact._id,
             sender: currentUser._id,

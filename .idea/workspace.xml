@@ -10,7 +10,6 @@
       <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/footer/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/url.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/url.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/userController.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +112,8 @@
       <workItem from="1704804358032" duration="1173000" />
       <workItem from="1704816908020" duration="514000" />
       <workItem from="1704867676189" duration="630000" />
-      <workItem from="1704869476572" duration="3600000" />
+      <workItem from="1704869476572" duration="3913000" />
+      <workItem from="1704873631827" duration="208000" />
     </task>
     <servers />
   </component>

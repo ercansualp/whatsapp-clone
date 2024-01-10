@@ -17,7 +17,7 @@ export default function Main(props: props) {
     const currentUser = useCurrentUser();
     const contacts = useContacts();
     const messages = useMessages();
-
+    
     useEffect(() => {
         socket.emit("join_room", currentUser._id);
     }, [socket])
@@ -43,7 +43,7 @@ export default function Main(props: props) {
         return () => {
             socket.off("receive_online");
         }
-    }, [contacts, socket]);
+    }, [socket, contacts]);
     useEffect(() => {
         socket.on("receive_disconnect", (data) => {
             setContact(data._id, {
