@@ -22,11 +22,12 @@ export default function Main(props: props) {
         socket.emit("join_room", currentUser._id);
     }, [socket])
     function setContact(_id, params) {
-        let newContacts = JSON.parse(JSON.stringify(contacts));
+        const newContacts = [...contacts];
         for(let i = 0; i < newContacts.length; i++) {
             if(newContacts[i]._id === _id) {
-                for(let j = 0; j < params.length; j++) {
-                    newContacts[i][params[j][0]] = params[j][1];
+                newContacts[i] = {
+                    ...newContacts[i],
+                    ...params
                 }
                 break;
             }
@@ -35,7 +36,9 @@ export default function Main(props: props) {
     }
     useEffect(() => {
         socket.on("receive_online", (_id) => {
-            setContact(_id, [["online", true]]);
+            setContact(_id, {
+                online: true
+            });
         });
         return () => {
             socket.off("receive_online");
@@ -43,7 +46,11 @@ export default function Main(props: props) {
     }, [contacts, socket]);
     useEffect(() => {
         socket.on("receive_disconnect", (data) => {
-            setContact(data._id, [["online", false], ["typing", false], ["lastSeen", data.date]]);
+            setContact(data._id, {
+                online: false,
+                typing: false,
+                lastSeen: data.date
+            });
             axios.post(`${userAPI}/logout`, {date: data.date, _id: data._id});
         });
         return () => {
@@ -52,7 +59,9 @@ export default function Main(props: props) {
     }, [socket, contacts]);
     useEffect(() => {
         socket.on("receive_typing_message", (data) => {
-            setContact(data.sender, [["typing", data.value]]);
+            setContact(data.sender, {
+                typing: data.value
+            });
         });
         return () => {
             socket.off("receive_typing_message");
@@ -60,7 +69,11 @@ export default function Main(props: props) {
     }, [socket, contacts]);
     useEffect(() => {
         socket.on("receive_offline", (data) => {
-            setContact(data._id, [["typing", false], ["lastSeen", data.date], ["online", false]]);
+            setContact(data._id, {
+                online: false,
+                typing: false,
+                lastSeen: data.date
+            });
         });
         return () => {
             socket.off("receive_offline");
@@ -68,7 +81,9 @@ export default function Main(props: props) {
     }, [socket, contacts]);
     useEffect(() => {
         socket.on("receive_isContactOnline", (data) => {
-            setContact(data._id, [["online", data.online]]);
+            setContact(data._id, {
+                online: data.online
+            });
         });
         return () => {
             socket.off("receive_isContactOnline");
