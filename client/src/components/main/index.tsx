@@ -104,7 +104,6 @@ export default function Main(props: props) {
         const {data} = await axios.get(userAPI);
         data.forEach(contact => {
             contact.typing = false;
-            contact.online = contact._id === currentUser._id;
             contact.active = false;
         });
         setContacts(data);

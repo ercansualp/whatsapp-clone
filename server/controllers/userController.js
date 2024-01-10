@@ -67,7 +67,12 @@ export const login = async (req, res) => {
 
 export const GetAllContacts = async (req, res, next) => {
     try {
-        const users = await User.find({}).select({ "fullName": 1, "avatar": 1, "about": 1, lastSeen: 1 });
+        const users = await User.find().select({
+            fullName: 1,
+            avatar: 1,
+            about: 1,
+            lastSeen: 1
+        });
         res.send(users);
     } catch (error) {
         res.send([]);
