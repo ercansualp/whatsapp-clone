@@ -5,11 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db45d9cf-653d-414c-b234-42b544e62be6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/components/message-privacy/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/home/status/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/home/status/section/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/home/status/section/section-content/contact-status/contact-last-seen/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/home/status/section/section-content/contact-status/contact-name/indext.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/home/status/section/section-content/contact-status/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/home/status/section/section-content/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/home/status/section/section-title/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/utils/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/main/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/main/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/home/contacts/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/contacts/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/content/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/content/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/home/message/footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/home/message/footer/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/url.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/url.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/message/actions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/message/actions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/message/hooks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/message/hooks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/message/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/message/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/MessageModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/MessageModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/messageRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/messageRoute.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +33,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -60,6 +74,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\ercan\\OneDrive\\Masaüstü\\Projects\\whatsapp-clone\\client\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -114,6 +129,23 @@
       <workItem from="1704867676189" duration="630000" />
       <workItem from="1704869476572" duration="3913000" />
       <workItem from="1704873631827" duration="208000" />
+      <workItem from="1704880769282" duration="357000" />
+      <workItem from="1704882032787" duration="604000" />
+      <workItem from="1704949982245" duration="4204000" />
+      <workItem from="1704958536203" duration="1188000" />
+      <workItem from="1704966001163" duration="872000" />
+      <workItem from="1704987920013" duration="1000" />
+      <workItem from="1705037138870" duration="2525000" />
+      <workItem from="1705064861452" duration="605000" />
+      <workItem from="1705069905659" duration="1298000" />
+      <workItem from="1705150795991" duration="1003000" />
+      <workItem from="1705221053007" duration="346000" />
+      <workItem from="1705258884734" duration="540000" />
+      <workItem from="1705260401424" duration="73000" />
+      <workItem from="1705306775370" duration="4393000" />
+      <workItem from="1705313910920" duration="282000" />
+      <workItem from="1705319024657" duration="95000" />
+      <workItem from="1705319951085" duration="41000" />
     </task>
     <servers />
   </component>

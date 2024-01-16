@@ -4,6 +4,7 @@ import Communities from "~/pages/home/communities";
 import NewChat from "~/pages/home/new-chat";
 import Message from "~/pages/home/message";
 import Profile from "~/pages/home/profile";
+import Status from "./status";
 
 export default function Home() {
     const [value, setValue] = useState(0);
@@ -15,7 +16,7 @@ export default function Home() {
                     {
                         value === 0 ? <Contacts setValue={setValue} /> :
                         value === 1 ? <Communities setValue={setValue} /> :
-                        value === 2 ? <></> :
+                        value === 2 ? <Status setValue={setValue} /> :
                         value === 3 ? <NewChat setValue={setValue} /> :
                         value === 4 && <Profile setValue={setValue} />
                     }
