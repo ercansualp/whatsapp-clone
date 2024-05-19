@@ -78,46 +78,55 @@ export default function Footer() {
         console.log("files type: ", typeof files);
         console.log("files path");
         if(files.length !== 0) {
-            try {
-                const formData = new FormData();
-                for(let i = 0; i < files.length; i++) {
-                    formData.append("file", files[i])
-                }
-                let {data} = await axios.post(`${messageAPI}/uploadPhotosAndVideos`, formData);
-                let files = [];
-                let counter = 0;
-                for(let i = 0; i < data.length; i++) {
-                    files.push({
-                        ...data,
-                        sender: currentUser._id,
-                        recipient: contact._id,
-                        text: message,
-                        type: data[i].mimetype.includes("image") ? "image" : "video"
-                    });
-                    counter++;
-                }
-                for(let i = 0; i < files.length; i++) {
-                    await axios.post(messageAPI, {
-                        ...files[i]
-                    });
-                    counter--;
-                }
-                if(counter === 0) {
-                    console.log("ok!");
-                }
-                /*
-                await axios.patch(userAPI, {
-                    _id: data._id,
-                    avatar: data,
-                    about: data.about,
-                    fullName: data.fullName,
-                    olddata: currentUser.avatar
-                });
-                console.log("res: ", data);
-                */
-            } catch {
-
+            const formData = new FormData();
+            for(let i = 0; i < files.length; i++) {
+                formData.append("file", files[i])
             }
+            console.log("es: ", formData);
+            let {data} = await axios.post(`${messageAPI}/uploadPhotosAndVideos`, formData);
+            console.log("res data: ",  data);
+            let result = await axios.post(messageAPI, {
+                sender: currentUser._id,
+                recipient: contact._id,
+                text: data[0].path,
+                type: "file"
+            });
+            console.log("result response: ", result.data);
+            /*
+            files = [];
+            let counter = 0;
+            for(let i = 0; i < data.length; i++) {
+                files.push({
+                    ...data,
+                    sender: currentUser._id,
+                    recipient: contact._id,
+                    text: message,
+                    type: data[i].mimetype.includes("image") ? "image" : "video"
+                });
+                counter++;
+            }
+            for(let i = 0; i < files.length; i++) {
+                await axios.post(messageAPI, {
+                    ...files[i]
+                });
+                counter--;
+            }
+            if(counter === 0) {
+                console.log("ok!");
+            }
+            */
+
+
+            /*
+            await axios.patch(userAPI, {
+                _id: data._id,
+                avatar: data,
+                about: data.about,
+                fullName: data.fullName,
+                olddata: currentUser.avatar
+            });
+            console.log("res: ", data);
+            */
             /*
             try {
                 for(let i = 0; i < files.length; i++) {
